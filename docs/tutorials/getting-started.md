@@ -7,157 +7,159 @@ keywords: [notquests, tutorial, getting started, beginner, guide]
 
 :::danger Before you read
 
-This guide was designed with version **5.17.1 or higher** and **[Paper 1.20.1](https://papermc.io/)** in mind.
+本指南是根据 **5.17.1 或更高版本** 和 **[paper 1.20.1](https://papermc.io/)** 设计的。
 
-Older versions or Spigot servers, will have less features and different commands.
-If you're using an older version or Spigot, please do your own research as the commands will be different.
+旧版本或 Spigot 服务器将具有较少的功能和不同的命令。
+如果您使用的是旧版本或 Spigot，请自行研究，因为命令会有所不同。
 
 :::
 
 :::info Incomplete docs
 
-I know the docs here are very incomplete and cover only 10% of what notquests can actually do. As the docs are open-source that's not my fault though, but yours, because you, or rather the community, is lazy! **Shame on you!**
+我知道这里的文档非常不完整，只涵盖了 notquests 实际功能的 10%。 由于文档是开源的，这不是我的错，而是你的错，因为你，或者更确切地说，社区，很懒！ **你太无耻了！**
 
-Once you know more about notquests, you can be a chad and **[contribute to our documentation here](https://github.com/AlessioGr/NotQuests-Docs/tree/main/docs)** (GitHub account needed, but docs can be edited right on there) - any contributions are welcome! ❤️
+一旦您了解了有关 notquests 的更多信息，您就可以成为我们的一员**[在此处为我们的文档做出贡献](https://github.com/AlessioGr/NotQuests-Docs/tree/main/docs)**（需要 GitHub 帐户， 但可以在那里编辑文档） - 欢迎任何贡献！ ❤️
 
 :::
 
-Let's discover **NotQuests!** There's two ways to get started:
+让我们来探索**NotQuests！** 有两种方法可以开始：
 
-- Either you keep on reading this guide
-- Or watch our [Video Tutorial](https://www.youtube.com/watch?v=OC45_H3Tv8Y). Note that the video tutorial was made with NotQuests v3 and some commands might be slightly different.
+- 要么继续阅读本指南
+- 或者观看我们的 [youtube视频教程](https://www.youtube.com/watch?v=OC45_H3Tv8Y)。请注意，视频教程是使用 NotQuests v3 制作的，某些命令可能略有不同。
 
-## The Structure
+## 结构
 
-A Quest in NotQuests can have different properties. Examples:
+NotQuests 中的任务可以有不同的属性，例如：
 
-- **displayName**: the Quest name which players will actually see
-- **description**: the Quest description
-- **limits**: the maximum amount of times a player can accept, complete or fail the Quest
-- *and much more...*
+- **displayName**: 玩家实际看到的任务名称
+- **description**: 任务描述
+- **limits**: 玩家可以接受、完成或失败任务的最大次数
+- *还有更多...*
 
-Additionally, we can attach the following to a Quest:
+此外，我们还可以将以下内容附加到任务中：
 
-- **Objectives**: An objective is basically "something the player needs to do". Once all objectives the Quest has are completed, the Quest itself is completed.
-- **Requirements**: These determine if the player can accept the Quest. If the player does not fulfill all requirements, they can not start the Quest. Internally, they are called *conditions*.
-- **Rewards**: Should be self-explanatory! Rewards are actions which will be "executed" once the Player completes the Quest.
-- **Triggers**: Triggers are a bit more complicated to understand. Basically, they "execute" an action once *something happens*.
+- **Objectives**: 目标基本上是“玩家需要做的事情”。 一旦任务的所有目标都完成，任务本身就完成了。
+- **Requirements**: 这些决定了玩家是否可以接受任务。 如果玩家未满足所有要求，则无法开始任务。 在内部，它们被称为“条件”。
+- **Rewards**: 不言自明！奖励是玩家完成任务后将 "执行 "的操作。
+- **Triggers**: 触发器的理解比较复杂。基本上，一旦有*事情发生*，触发器就会 "执行 "一个动作。
 
-## The Commands
+## 命令
 
-There are two types of commands:
+有两种类型的命令：
 
-- `/q` or `/notquests` for **Player commands**. All players will have access to this command.
-- `/qa` or `/notquestsadmin` for **Admin commands**. We're gonna use this to make and edit our Quests!
+- `/q` 或 `/notquests` 用于**玩家命令**。所有玩家都可以使用此命令。
+- `/qa` 或 `/notquestsadmin` 用于 **管理命令**。 我们将用它来制作和编辑我们的任务！
 
-In NotQuests, we create all our Quests with commands. No need to edit complicated configuration files!
+在 NotQuests 中，我们使用命令创建所有任务。 无需编辑复杂的配置文件！
 
 ### Command Completions
+> 由于图片无法汉化，所以你看到的图片都是英文版本  
+该提示只会出现一次
 
-Each thing you write, separated by a space, is called an *argument*. In the following pictures, *edit*, and *questname* are the two arguments:
+你所写的每一个用空格隔开的内容都称为*参数*。在下面的图片中，**edit** 和 **questname** 是两个参数：
 
 ![Command Completions](/img/getting-started/command-completions.png)
 
-If you press space after the last argument, our intelligent command system will show you what argument comes "next". If you're stuck with a command, just make sure the last character is a space and **read the command completions**!
+如果您在最后一个参数后按空格键，我们的智能命令系统将向您显示“下一个”参数是什么。 如果您遇到命令问题，只需确保最后一个字符是空格并**阅读命令补全**！
 
-:::tip Still stuck?
+:::tip 仍然卡住？
 
-If the command completions aren't enough and you still don't know how a command works, just **press enter** and run the command! It will show you a **help menu**. Just read it, and it will tell you what arguments it needs and what they do.
+如果命令完成还不够，并且您仍然不知道命令是如何工作的，只需**按 Enter** 并运行命令！ 它会向您显示**帮助菜单**。 只要阅读它，它就会告诉您它需要什么参数以及它们的作用。
 
 :::
 
-## Creating our first Quest
+## 创建第一个任务
 
-I think the best and easiest way to learn, is to learn-by-doing! So let's not waste time on boring documentations and create our first Quest:
+我认为最好、最简单的学习方法就是边做边学！ 因此，让我们不要在无聊的文档上浪费时间并创建我们的第一个任务：
 
 `/qa create TheVirus`
 
-It should then show you the following message:
+然后它应该向您显示以下消息：
 
 ![Quest successfully created](/img/getting-started/quest-successfully-created.png)
 
-### 1. Quest Description & Display Name
+### 1. 任务描述和显示名称
 
-Now, the initial Quest Name cannot have any spaces. It's just an identifier for the Quest. However, we can give it a display name which can have spaces - and that's the name the player will actually see!
+现在，初始任务名称不能有任何空格。它只是任务的标识符。不过，我们可以给它一个可以有空格的显示名称，这就是玩家实际看到的名称！
 
-`/qa edit TheVirus displayName set A Deadly Virus`
+`/qa edit TheVirus displayName set 致命 病毒`
 
-Next, we want to add a description to the Quest, which will be displayed in multiple places, for example if the player tries to preview or take the Quest:
+接下来，我们要为任务添加描述，该描述将显示在多个位置，例如，如果玩家尝试预览或接受任务：
 
-`/qa edit TheVirus description set A deadly virus has infected the people of Winterfell. You have to murder the infected villagers to prevent the virus from spreading further.`
+`/qa edit TheVirus description set 一种致命的病毒感染了临冬城的居民。您必须杀死受感染的村民，防止病毒进一步扩散。`
 
-Now, your players will see a beautiful description and display name after accepting the Quest:
+现在，您的玩家在接受任务后会看到精美的描述和显示名称：
 
 ![After they accepted the Quest](/img/getting-started/after-accepting-with-description.png)
 
-### 2. Requirements
+### 2. 要求
 
-Without any requirements, every single player will be able to accept your Quest. However, that Quest we're gonna make will be quite tricky! Let's require the player to have at least 10 Quest Points until they can accept the Quest:
+没有任何要求，每个玩家都能接受你的任务。不过，我们要做的任务会相当棘手！让我们要求玩家至少拥有 10 点任务点数，然后才能接受任务：
 
 `/qa edit TheVirus requirements add QuestPoints moreOrEqualThan 10`
 
-Quest Points can be earned by completing Quests, or they can be given out manually.
+任务点数可以通过完成任务来获得，也可以手动分配。
 
-This is what Players will now see if they try to accept the Quest but don't fulfill the requirements.
+如果玩家尝试接受任务但未满足要求，他们现在会看到以下内容。
 
 ![After they accepted the Quest](/img/getting-started/requirements-not-fulfilled.png)
 
-In order for us to be able to test our own Quest, give yourself 10 Quest Points:
+为了让我们能够测试我们自己的任务，给自己 10 个任务点：
 
 `/qa questpoints putyourminecraftnamehere add 10`
 
-:::tip Thank you for your attention
+:::tip 感谢您的关注
 
-If you like NotQuests, please [**give NotQuests a follow on modrinth**](https://modrinth.com/plugin/notquests/versions) 😊 This will motivate me bring you more updates and features!
+如果您喜欢 NotQuests，请[**在 modrinth 上关注 NotQuests**](https://modrinth.com/plugin/notquests/versions) 😊 这将激励我为您带来更多更新和功能！
 :::
 
 ### 3. Objectives
 
-Objectives are the heart of every Quest. Let's add our first one!
+目标是每个任务的核心。 让我们添加第一个！
 
-First, the player has to free up the road from all the shit the infected Zombies made:
+首先，玩家必须清除道路上受感染的僵尸制造的所有粪便：
 
 `/qa edit TheVirus objectives add BreakBlocks dirt 64`
 
-This objective will be completed once the player breaks 64 dirt 👍 If you want to, you can specify multiple materials there. For example, if both dirt or stone is fine for the player to break, just enter `dirt,stone` there.
+一旦玩家打破 64 个泥土，这个目标就会完成👍如果你愿意，你可以在那里指定多种材料。 例如，如果玩家可以破坏泥土或石头，则只需在那里输入“dirt,stone”即可。
 
-Now, let's add a description for that objective:
+现在，让我们为该目标添加一个描述：
 
-`/qa edit TheVirus objectives edit 1 description set The infected Zombies shat on the street. Clean it up by breaking 64 dirt blocks!`
+`/qa edit TheVirus objectives edit 1 description set 受感染的僵尸在街上拉屎,打破 64 个污垢块即可将其清理干净！`
 
-And a name:
+还有一个名字:
 
 `/qa edit TheVirus objectives edit 1 displayName set Stinky Street`
 
-Let's accept our Quest by using `/q take TheVirus`:
+让我们使用 `/q take TheVirus` 接受任务：
 
 ![After they accepted the Quest with first Objective](/img/getting-started/after-accepting-with-first-objective.png)
 
-That was easy, wasn't it?
+那很容易，不是吗？
 
 #### Second Objective
 
-Onto our next objective! The street is clear! The player should now kill all the infected villagers:
+我们继续下一个目标！街道已经清空！玩家现在应该杀死所有感染的村民：
 
 `/qa edit TheVirus objectives add KillMobs zombie_villager 15`
 
-After 15 kills of Zombie Villagers, that objective will be completed! Now let's add an objective description and name:
+在杀死15名僵尸村民之后，该目标将完成！现在让我们添加一个目标描述和名称：
 
-`/qa edit TheVirus objectives edit 2 description set You can see the infected villagers in front of you! Murder them all to stop the virus from spreading!`
+`/qa edit TheVirus objectives edit 2 description set 你可以看到前面的感染村民！杀死他们全部，阻止病毒传播！`
 
 `/qa edit TheVirus objectives edit 2 displayName set Zombies ahead!`
 
-#### Objective Dependencies
+#### 目标依赖关系
 
-Now, after accepting this Quest, you will see this:
+现在，在接受这个任务后，您将会看到这个界面：
 
 ![After they accepted the Quest with second Objective](/img/getting-started/after-accepting-with-second-objective.png)
 
-As you see, both objectives are visible. You can also complete them in no particular order.
+如您所见，两个目标都可见。您也可以按任意顺序完成它们。
 
-However, we want the second Objective, "Zombies ahead!" to only be visible and complete-able after the first Objective is completed.
+然而，我们希望第二个目标"前方有僵尸！"只有在完成第一个目标后才可见和可完成。
 
-To accomplish that, we need to add a condition to the second objective which makes it so the player needs to complete objective 1 first. There's two ways to achieve this in NotQuests (choose just one):
+为了实现这一点，我们需要向第二个目标添加一个条件，使玩家需要先完成第一个目标。在NotQuests中，有两种方法可以实现这一点（请选择其中一种）：
 
 - **Easy way**: `/qa edit TheVirus objectives predefinedProgressOrder set firstToLast`. This also automatically sets the correct, same order for any future objectives you may add to this quest.
 - **Harder way**: `/qa edit TheVirus objectives edit 2 conditions unlock add CompletedObjective 1`. You'd need to set this for every single objective of that quest. However, this way may give you more flexibility.
